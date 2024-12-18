@@ -1,0 +1,8 @@
+eeprom.c:59:6:flash_lock	1
+eeprom.c:63:9:flash_unlock	2
+eeprom.c:79:6:flash_erase_page	3
+eeprom.c:100:6:flash_write_array	6
+eeprom.c:121:6:read_page	2
+eeprom.c:129:16:find_settings	3
+eeprom.c:155:10:settings_load	2
+eeprom.c:168:6:settings_save	6

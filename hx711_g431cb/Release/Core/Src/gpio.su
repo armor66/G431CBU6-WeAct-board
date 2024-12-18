@@ -1,0 +1,4 @@
+../Core/Src/gpio.c:42:6:MX_GPIO_Init	64	static
+../Core/Src/gpio.c:92:6:led_toggle	0	static
+../Core/Src/gpio.c:97:6:led_on	0	static
+../Core/Src/gpio.c:102:6:led_off	0	static
