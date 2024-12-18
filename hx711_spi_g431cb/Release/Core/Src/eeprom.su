@@ -1,0 +1,8 @@
+../Core/Src/eeprom.c:59:6:flash_lock	0	static
+../Core/Src/eeprom.c:63:9:flash_unlock	0	static
+../Core/Src/eeprom.c:79:6:flash_erase_page	0	static,ignoring_inline_asm
+../Core/Src/eeprom.c:100:6:flash_write_array	32	static,ignoring_inline_asm
+../Core/Src/eeprom.c:121:6:read_page	12	static
+../Core/Src/eeprom.c:129:16:find_settings	16	static
+../Core/Src/eeprom.c:155:10:settings_load	8	static
+../Core/Src/eeprom.c:168:6:settings_save	16	static
