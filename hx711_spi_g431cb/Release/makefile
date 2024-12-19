@@ -52,6 +52,9 @@ default.size.stdout \
 OBJDUMP_LIST += \
 hx711_spi_g431cb.list \
 
+OBJCOPY_BIN += \
+hx711_spi_g431cb.bin \
+
 
 # All Target
 all: main-build
@@ -75,12 +78,17 @@ hx711_spi_g431cb.list: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS
 	@echo 'Finished building: $@'
 	@echo ' '
 
+hx711_spi_g431cb.bin: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-objcopy  -O binary $(EXECUTABLES) "hx711_spi_g431cb.bin"
+	@echo 'Finished building: $@'
+	@echo ' '
+
 # Other Targets
 clean:
-	-$(RM) default.size.stdout hx711_spi_g431cb.elf hx711_spi_g431cb.list hx711_spi_g431cb.map
+	-$(RM) default.size.stdout hx711_spi_g431cb.bin hx711_spi_g431cb.elf hx711_spi_g431cb.list hx711_spi_g431cb.map
 	-@echo ' '
 
-secondary-outputs: $(SIZE_OUTPUT) $(OBJDUMP_LIST)
+secondary-outputs: $(SIZE_OUTPUT) $(OBJDUMP_LIST) $(OBJCOPY_BIN)
 
 fail-specified-linker-script-missing:
 	@echo 'Error: Cannot find the specified linker script. Check the linker settings in the build configuration.'

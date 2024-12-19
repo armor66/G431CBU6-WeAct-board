@@ -150,12 +150,14 @@ int main(void)
 	ssd1306_Init();
 	ssd1306_Fill(Black);
 /***********************calculate offset start**********************/
+	HAL_SPI_TransmitReceive_DMA(&hspi2, (uint8_t*) (&TxData), (uint8_t*) (&RxData), sizeof(TxData));
+	HAL_Delay(100);
 	while(HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_14) == GPIO_PIN_SET) {}
 	HAL_SPI_TransmitReceive_DMA(&hspi2, (uint8_t*) (&TxData), (uint8_t*) (&RxData), sizeof(TxData));
+	HAL_Delay(100);		//yes, that is weird
 
 	for(int8_t i = 0; i < MEASURE_AMOUNT; i++)
 	{
-
 		while(!sensor_read_flag	|| (HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_14) == GPIO_PIN_SET)) {}
 		sensor_read_flag = 0;
 		HAL_SPI_TransmitReceive_DMA(&hspi2, (uint8_t*) (&TxData), (uint8_t*) (&RxData), sizeof(TxData));
